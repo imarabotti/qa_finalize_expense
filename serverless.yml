@@ -1,0 +1,18 @@
+service: qa_finalize_expense
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-west-2
+
+# you can add packaging information here
+package:
+#  include:
+#    - include-me-dir/**
+  exclude:
+    - node_modules/**
+
+functions:
+  qa_finalize_expense:
+    handler: index.handler
