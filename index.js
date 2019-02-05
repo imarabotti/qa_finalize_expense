@@ -50,6 +50,8 @@ exports.handler = async(event) => {
 
         await SQS.sendMessage(ACQueueParams).promise();
 
+        await S3.deleteObject(s3Params).promise();
+
         return console.log('Expensa terminada, actualiza DB en update_expense_queue');
     } else {
         // No termino, porque la cantidad de msgs no es 0 (osea todavia hay trabajos por hacer)
